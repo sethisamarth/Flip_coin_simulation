@@ -1,8 +1,8 @@
 #! /bin/bash -x
 total_head=0
 total_tail=0
-read -p "Enter the how many times you want to toss:n" n
-for (( i=1; i<=n; i++))
+
+while (( total_head<21 && total_tail<21 ))
 do
 toss=$((RANDOM%2))
 
@@ -18,14 +18,23 @@ else
 fi
 
 done
+
 echo "$total_head"
 echo "$total_tail"
 
 if(( $total_head > $total_tail ))
 then
-      echo "winner is heads"
+        H=$(( $total_head - $total_tail ))
+      echo "winner is heads by $H points "
+
 else
-      echo "winner is tails"
+        T=$(( $total_tail -$total_head ))
+      echo "winner is tails by $T points"
+
 fi
+
+
+
+
 
 
